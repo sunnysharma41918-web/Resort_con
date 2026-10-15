@@ -1,0 +1,491 @@
+@import './variables.css';
+@import './components.css';
+@import './mobile-nav.css';
+
+/* ==========================================================================
+   CSS Reset & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ==========================================================================
+   Modern Clean Typography (#46344E & #FAED26 Accents)
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display, var(--font-heading, 'Canicule Display', 'Syne', 'Outfit', serif));
+  color: var(--color-text-main);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.85rem, 3.4vw, 2.85rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+}
+
+h4 {
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+}
+
+p {
+  font-size: 1rem;
+  color: var(--color-text-body);
+  margin-bottom: var(--space-md);
+}
+
+p.lead {
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Layout Containers & Utilities
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-gutter, clamp(1.5rem, 4vw, 3.5rem));
+  padding-right: var(--container-gutter, clamp(1.5rem, 4vw, 3.5rem));
+  box-sizing: border-box;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-gutter, clamp(1.5rem, 4vw, 3.5rem));
+  padding-right: var(--container-gutter, clamp(1.5rem, 4vw, 3.5rem));
+  box-sizing: border-box;
+}
+
+.section {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+}
+
+.section-lg {
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+}
+
+.section-dark {
+  background-color: var(--color-plum);
+  color: var(--color-text-inverse);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: #ffffff;
+}
+
+.section-dark p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.section-soft {
+  background-color: var(--color-bg-soft);
+}
+
+/* ==========================================================================
+   Buttons (#FAED26 Yellow & #46344E Plum)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.92rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.01em;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Primary Electric Yellow Button (#FAED26) */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #46344E;
+  font-weight: 700;
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 4px 16px rgba(250, 237, 38, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: #46344E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(250, 237, 38, 0.52);
+}
+
+/* White Pill Button */
+.btn-white {
+  background-color: #ffffff;
+  color: var(--color-text-main);
+  border: 1px solid #ffffff;
+  box-shadow: 0 6px 20px rgba(70, 52, 78, 0.08);
+}
+
+.btn-white:hover {
+  background-color: var(--color-primary);
+  color: #46344E;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(250, 237, 38, 0.35);
+}
+
+/* Deep Slate Button (#46344E) */
+.btn-dark,
+.btn-plum {
+  background-color: var(--color-plum);
+  color: #ffffff;
+  border: 1px solid var(--color-plum);
+}
+
+.btn-dark:hover,
+.btn-plum:hover {
+  background-color: var(--color-plum-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(70, 52, 78, 0.28);
+}
+
+/* Clean Outline Button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-text-main);
+  border: 1.5px solid var(--color-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: #46344E;
+  background-color: rgba(250, 237, 38, 0.16);
+  transform: translateY(-2px);
+}
+
+/* Yellow / Coral / Accent Outline Button */
+.btn-outline-yellow {
+  background-color: transparent;
+  color: var(--color-primary-dark);
+  border: 1.5px solid var(--color-primary);
+}
+
+.btn-outline-yellow:hover {
+  background-color: var(--color-primary);
+  color: #46344E;
+  transform: translateY(-2px);
+}
+
+/* Text link with subtle arrow slide */
+.btn-text {
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-primary-dark);
+  font-weight: var(--font-weight-bold);
+  font-size: 0.92rem;
+}
+
+.btn-text:hover {
+  color: var(--color-slate-mauve);
+  gap: 0.65rem;
+}
+
+/* Circular Icon Action Button (phone call button in header) */
+.btn-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-main);
+  background-color: #ffffff;
+  transition: all var(--transition-fast);
+}
+
+.btn-circle:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: #46344E;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Badges & Eyebrow Elements (Custom 5-Color Luxury Palette)
+   ========================================================================== */
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-obsidian-plum);
+  margin-bottom: var(--space-sm);
+  background-color: var(--color-mint);
+  border: 1px solid var(--color-primary-border);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+}
+
+.eyebrow-badge.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.badge-pill-yellow,
+.badge-pill-coral,
+.badge-pill-green {
+  background-color: var(--color-primary);
+  color: #46344E;
+  border: 1px solid rgba(250, 237, 38, 0.7);
+}
+
+.badge-pill-plum,
+.badge-pill-dark {
+  background-color: var(--color-plum);
+  color: var(--color-snow);
+}
+
+.badge-pill-terra {
+  background-color: rgba(155, 120, 111, 0.18);
+  color: #9B786F;
+  border: 1px solid rgba(155, 120, 111, 0.35);
+}
+
+/* ==========================================================================
+   Modern Rounded Grids & Cards
+   ========================================================================== */
+.grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.grid-2 {
+  grid-template-columns: 1fr;
+}
+
+.equal-ratio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .equal-ratio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+
+.grid-4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card-luxury {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+}
+
+.card-luxury:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-plum);
+  box-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   Form Input Styles
+   ========================================================================== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: var(--space-lg);
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-main);
+  letter-spacing: 0.01em;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-plum);
+  box-shadow: 0 0 0 4px rgba(250, 237, 38, 0.35);
+  background-color: #ffffff;
+}
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: var(--color-error);
+  background-color: var(--color-error-bg);
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: var(--color-error);
+  margin-top: 0.2rem;
+}
+
+/* ==========================================================================
+   Combined Typography System
+   1. Canicule Display – Lift Type (Headings & Luxury Titles)
+   2. Satoshi – Fontshare (Primary Sans, Body, UI, Forms)
+   3. Champ – Sharp Type (Metrics, Counters, High-Impact Numbers)
+   4. Rader – Future Fonts (Editorial Subtitles, Testimonial Quotes & Accents)
+   ========================================================================== */
+.font-sans,
+.font-satoshi {
+  font-family: var(--font-sans) !important;
+}
+
+.font-display,
+.font-canicule,
+.font-heading {
+  font-family: var(--font-display) !important;
+}
+
+.font-champ {
+  font-family: var(--font-champ) !important;
+  letter-spacing: -0.02em;
+}
+
+.font-rader {
+  font-family: var(--font-rader) !important;
+  letter-spacing: -0.01em;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial) !important;
+  letter-spacing: -0.01em;
+}
+

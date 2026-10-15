@@ -1,0 +1,208 @@
+/* 1. Canicule Display – Lift Type */
+@font-face {
+  font-family: 'Canicule Display';
+  src: url('/fonts/canicule-display.woff2') format('woff2'),
+       url('/fonts/canicule-display.woff') format('woff'),
+       url('/fonts/canicule-display.ttf') format('truetype'),
+       url('https://db.onlinewebfonts.com/t/8dab3ccb6f8dd312d7b144472c36e387.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Satoshi – Fontshare */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-300.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-400.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-500.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-700.woff2') format('woff2'),
+       url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff2') format('woff2');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 3. Champ – Sharp Type / Typeverything */
+@font-face {
+  font-family: 'Champ';
+  src: url('/fonts/champ.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/04c8e83e4fb869f076710d1414b8ea30.woff2') format('woff2');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 4. Rader – Future Fonts / Pangram Pangram */
+@font-face {
+  font-family: 'Rader';
+  src: url('/fonts/rader.woff') format('woff'),
+       url('https://pangrampangram.com/cdn/shop/files/PPRader-Variable.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Rader';
+  src: url('/fonts/rader.woff') format('woff'),
+       url('https://pangrampangram.com/cdn/shop/files/PPRader-Variable.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ==========================================================================
+     Custom 5-Color Luxury Palette:
+     #FAED26 (Vibrant Electric Lemon Yellow / Primary Highlight)
+     #46344E (Deep Velvet Royal Obsidian Plum / Primary Dark Surface)
+     #5A5560 (Muted Slate Mauve / Secondary Dark & Neutral Body)
+     #9D8D8F (Dusty Lilac Taupe / Warm Heather Borders & Muted Accents)
+     #9B786F (Warm Earth Terracotta / Cocoa Rosewood Accent)
+     ========================================================================== */
+  --color-electric-yellow: #FAED26;
+  --color-obsidian-plum: #46344E;
+  --color-slate-mauve: #5A5560;
+  --color-dusty-taupe: #9D8D8F;
+  --color-warm-terracotta: #9B786F;
+
+  /* Aliases for core design system */
+  --color-obsidian: #46344E;
+  --color-deepteal: #5A5560;
+  --color-teal: #FAED26;
+  --color-mint: #F4F0F2;
+  --color-snow: #FEFFFF;
+
+  --color-cream: #F5F1F3;
+  --color-sand: #ECE6E9;
+  --color-slate-taupe: #5A5560;
+  --color-coral-soft: #FFF36D;
+  --color-coral: #FAED26;
+  --color-coral-dark: #E5D715;
+
+  /* Primary Accent & Action Colors */
+  --color-primary: #FAED26;
+  --color-primary-hover: #E5D715;
+  --color-primary-soft: rgba(250, 237, 38, 0.16);
+  --color-primary-glow: rgba(250, 237, 38, 0.42);
+  --color-primary-border: rgba(250, 237, 38, 0.6);
+  --color-primary-dark: #46344E;
+  --color-primary-darkest: #322538;
+
+  /* Backward Compatibility Aliases */
+  --color-yellow: #FAED26;
+  --color-yellow-hover: #E5D715;
+  --color-plum: #46344E;
+  --color-plum-dark: #322538;
+  --color-plum-darkest: #221827;
+  --color-slate: #5A5560;
+  --color-mauve: #9D8D8F;
+  --color-mauve-soft: #F4F0F2;
+  --color-terracotta: #9B786F;
+  --color-terracotta-soft: rgba(155, 120, 111, 0.18);
+
+  --color-wellness-green: #FAED26;
+  --color-wellness-green-hover: #E5D715;
+
+  /* Surfaces & Backgrounds */
+  --color-bg-page: #FEFFFF;
+  --color-bg-card: #FEFFFF;
+  --color-bg-card-warm: #FAF8F9;
+  --color-bg-soft: #F4F0F2;
+  --color-bg-muted: #ECE6E9;
+  --color-bg-dark: #46344E;
+  --color-border: rgba(90, 85, 96, 0.18);
+  --color-border-subtle: rgba(157, 141, 143, 0.32);
+
+  /* Typography */
+  --color-text-main: #46344E;
+  --color-text-body: #5A5560;
+  --color-text-muted: #9D8D8F;
+  --color-text-light: #9D8D8F;
+  --color-text-inverse: #FEFFFF;
+  --color-text-yellow: #FAED26;
+  --color-text-accent: #FAED26;
+
+  --color-success: #FAED26;
+  --color-error: #D9534F;
+  --color-error-bg: #FDF2F2;
+
+  /* ==========================================================================
+     Typography
+     ========================================================================== */
+  --font-sans: 'Satoshi', 'Plus Jakarta Sans', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-satoshi: 'Satoshi', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Canicule Display', 'Playfair Display', serif;
+  --font-heading: 'Canicule Display', 'Playfair Display', serif;
+  --font-champ: 'Champ', 'Syne', 'Outfit', sans-serif;
+  --font-rader: 'Rader', 'PP Rader', 'Syne', sans-serif;
+  --font-editorial: 'Rader', 'Canicule Display', 'Playfair Display', serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-devanagari: 'Noto Sans Devanagari', 'Satoshi', sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ==========================================================================
+     Spacing & Layout
+     ========================================================================== */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+
+  --container-max-width: 1360px;
+  --container-narrow: 860px;
+  --container-wide: 1360px;
+  --container-gutter: clamp(1.5rem, 4vw, 3.5rem);
+
+  /* ==========================================================================
+     Radii: Smooth Curves & Pill Shapes
+     ========================================================================== */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-hero: 36px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  --shadow-subtle: 0 4px 20px rgba(70, 52, 78, 0.04);
+  --shadow-card: 0 10px 30px rgba(70, 52, 78, 0.08);
+  --shadow-elevated: 0 20px 48px rgba(70, 52, 78, 0.14);
+  --shadow-yellow: 0 10px 25px rgba(250, 237, 38, 0.35);
+
+  --transition-fast: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
