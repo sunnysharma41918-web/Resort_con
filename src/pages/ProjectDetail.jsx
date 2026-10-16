@@ -11,19 +11,19 @@ const ProjectDetail = () => {
 
   if (!project) {
     return (
-      <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 py-20 text-center bg-[#FAF8F5]">
-        <span className="inline-flex items-center px-3.5 py-1.5 bg-coral/10 text-coral text-xs font-bold tracking-widest uppercase mb-4">
+      <div className="min-h-[70vh] flex flex-col items-center justify-center px-4 py-20 text-center bg-[#FAF8F2]">
+        <span className="inline-flex items-center px-3.5 py-1.5 bg-[#CBBD93]/20 text-[#574A24] text-xs font-bold tracking-widest uppercase mb-4 rounded-full border border-[#CBBD93]/40">
           Project Not Found
         </span>
-        <h1 className="text-3xl sm:text-4xl font-editorial font-bold text-plum mb-4">
+        <h1 className="text-3xl sm:text-4xl font-editorial font-bold text-[#574A24] mb-4">
           The requested project could not be found
         </h1>
-        <p className="text-taupe-dark max-w-md mb-8 text-sm">
+        <p className="text-[#80775C] max-w-md mb-8 text-sm">
           The portfolio piece you are looking for may have been updated or archived. Explore our current signature engagements below.
         </p>
         <Link
           to="/projects"
-          className="inline-flex items-center gap-2 bg-coral hover:bg-coral-dark text-white px-6 py-3 rounded-lg font-medium text-sm transition-colors shadow-sm"
+          className="inline-flex items-center gap-2 bg-[#574A24] hover:bg-[#453a1c] text-[#FAE8B4] px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-sm"
         >
           <ArrowLeft size={16} />
           <span>Back to Our Projects</span>
@@ -36,7 +36,7 @@ const ProjectDetail = () => {
   const nextProject = projectIndex < projectsData.length - 1 ? projectsData[projectIndex + 1] : projectsData[0];
 
   return (
-    <div className="bg-[#FAF8F5] min-h-screen text-plum pt-6 pb-20">
+    <div className="bg-[#FAF8F2] min-h-screen text-[#574A24] pt-6 pb-20">
       {/* Top Breadcrumb & Return Bar */}
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-12 pt-4 pb-6">
         <div className="flex items-center justify-between flex-wrap gap-4 border-b border-taupe/15 pb-4">
@@ -209,43 +209,43 @@ const ProjectDetail = () => {
           {/* Right Sidebar: Engagement Profile & Advisory Scope (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
             {/* Project Quick Specs Card */}
-            <div className="bg-[#1E1D1C] text-white p-6 sm:p-7 rounded-2xl border border-stone-800 shadow-xl">
-              <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-coral block mb-3">
+            <div className="bg-[#1F1A0E] text-[#FAE8B4] p-6 sm:p-7 rounded-2xl border border-[#CBBD93]/30 shadow-xl">
+              <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#CBBD93] block mb-3">
                 Mandate Overview
               </span>
-              <h3 className="font-editorial text-xl font-bold text-white mb-5 pb-3 border-b border-white/10">
+              <h3 className="font-editorial text-xl font-bold text-[#FAE8B4] mb-5 pb-3 border-b border-[#CBBD93]/20">
                 Asset Specifications
               </h3>
 
               <div className="space-y-4 text-xs font-sans">
-                <div className="flex justify-between items-center py-1.5 border-b border-white/5">
-                  <span className="text-stone-400">Client / Sponsor</span>
-                  <span className="text-white font-medium">{project.client}</span>
+                <div className="flex justify-between items-center py-1.5 border-b border-[#CBBD93]/15">
+                  <span className="text-[#FAE8B4]/70">Client / Sponsor</span>
+                  <span className="text-[#FAE8B4] font-medium">{project.client}</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-white/5">
-                  <span className="text-stone-400">Capital Volume</span>
-                  <span className="text-coral font-bold">{project.investment}</span>
+                <div className="flex justify-between items-center py-1.5 border-b border-[#CBBD93]/15">
+                  <span className="text-[#FAE8B4]/70">Capital Volume</span>
+                  <span className="text-[#CBBD93] font-bold">{project.investment}</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-white/5">
-                  <span className="text-stone-400">Advisory Timeline</span>
-                  <span className="text-white font-medium">{project.timeline}</span>
+                <div className="flex justify-between items-center py-1.5 border-b border-[#CBBD93]/15">
+                  <span className="text-[#FAE8B4]/70">Advisory Timeline</span>
+                  <span className="text-[#FAE8B4] font-medium">{project.timeline}</span>
                 </div>
-                <div className="flex justify-between items-center py-1.5 border-b border-white/5">
-                  <span className="text-stone-400">Primary Sector</span>
-                  <span className="text-white font-medium">{project.category}</span>
+                <div className="flex justify-between items-center py-1.5 border-b border-[#CBBD93]/15">
+                  <span className="text-[#FAE8B4]/70">Category</span>
+                  <span className="text-[#FAE8B4] font-medium">{project.category}</span>
                 </div>
               </div>
 
               {/* Advisory Scope Pills */}
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-stone-400 block mb-3">
+              <div className="mt-6 pt-5 border-t border-[#CBBD93]/20">
+                <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-[#CBBD93] block mb-3">
                   Scope & Deliverables
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {project.deliverables.map((deliv, i) => (
                     <span
                       key={i}
-                      className="px-2.5 py-1 bg-white/10 text-white text-[11px] rounded-sm font-sans"
+                      className="px-2.5 py-1 bg-[#FAE8B4]/15 text-[#FAE8B4] text-[11px] rounded-full border border-[#CBBD93]/20 font-sans"
                     >
                       {deliv}
                     </span>
@@ -255,16 +255,16 @@ const ProjectDetail = () => {
             </div>
 
             {/* Direct Inquiry Action Card */}
-            <div className="bg-coral/10 border border-coral/30 p-6 sm:p-7 rounded-2xl text-center">
-              <h4 className="font-display text-xl font-bold text-plum mb-2">
+            <div className="bg-[#FAE8B4]/25 border border-[#CBBD93]/40 p-6 sm:p-7 rounded-2xl text-center">
+              <h4 className="font-display text-xl font-bold text-[#574A24] mb-2">
                 Inquire With S4Consultancy
               </h4>
-              <p className="text-xs text-taupe-dark font-sans leading-relaxed mb-5">
+              <p className="text-xs text-[#80775C] font-sans leading-relaxed mb-5">
                 Discuss weddings, banquet bookings, group hotel reservations, or hospitality management with our senior advisors.
               </p>
               <Link
                 to="/contact"
-                className="w-full inline-flex items-center justify-center gap-2 bg-coral hover:bg-coral-dark text-white font-semibold text-xs sm:text-sm py-3 px-5 rounded-lg transition-colors shadow-sm font-sans"
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#574A24] hover:bg-[#453a1c] text-[#FAE8B4] font-bold text-xs sm:text-sm py-3 px-5 rounded-full transition-colors shadow-sm font-sans"
               >
                 <span>Book S4Consultancy Consultation</span>
                 <ArrowRight size={15} />

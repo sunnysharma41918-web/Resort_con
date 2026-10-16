@@ -17,7 +17,7 @@ export const navigationData = [
   {
     id: 'consultancy-services',
     label: 'Our Services',
-    path: '/services',
+    path: '/#services',
     isExpandable: true,
     children: [
       {
@@ -59,39 +59,6 @@ export const navigationData = [
         id: 'group-booking',
         label: 'Group Booking',
         path: '/services/group-booking'
-      }
-    ]
-  },
-  {
-    id: 'industries',
-    label: 'Hospitality Sectors',
-    path: '/projects',
-    isExpandable: true,
-    children: [
-      {
-        id: 'hotels-resorts',
-        label: 'Hotels & Luxury Resorts',
-        path: '/projects?sector=hotels-resorts'
-      },
-      {
-        id: 'wedding-venues',
-        label: 'Wedding & Social Venues',
-        path: '/projects?sector=wedding-venues'
-      },
-      {
-        id: 'banquets-ballrooms',
-        label: 'Banquet Halls & Ballrooms',
-        path: '/projects?sector=banquets-ballrooms'
-      },
-      {
-        id: 'corporate-mice',
-        label: 'Corporate Conferences & MICE',
-        path: '/projects?sector=corporate-mice'
-      },
-      {
-        id: 'destination-retreats',
-        label: 'Destination Sanctuaries',
-        path: '/projects?sector=destination-retreats'
       }
     ]
   },

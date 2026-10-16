@@ -36,16 +36,16 @@ const Point = ({ text, i }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.9, delay: i * 0.1, ease: EASE }}
-      className="group relative border-t border-[#46344E]/15 pb-2 pt-6"
+      className="group relative border-t border-[#574A24]/15 pb-2 pt-6"
     >
-      <span className="absolute inset-x-0 -top-px h-px origin-left scale-x-0 bg-[#FAED26] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
+      <span className="absolute inset-x-0 -top-px h-px origin-left scale-x-0 bg-[#CBBD93] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
       <div className="mb-8 flex items-center justify-between">
-        <span className="font-display text-sm font-bold text-[#46344E]/40">{pad(i + 1)}</span>
-        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F4F0F2] text-[#5A5560] transition-colors duration-500 group-hover:bg-[#46344E] group-hover:text-[#FAED26]">
+        <span className="font-display text-sm font-bold text-[#80775C]">{pad(i + 1)}</span>
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#FAE8B4]/40 text-[#574A24] transition-colors duration-500 group-hover:bg-[#574A24] group-hover:text-[#FAE8B4]">
           <Icon size={19} strokeWidth={2.1} />
         </span>
       </div>
-      <p className="font-display text-xl font-bold leading-[1.15] tracking-tight text-[#46344E] sm:text-[1.45rem]">
+      <p className="font-display text-xl font-bold leading-[1.15] tracking-tight text-[#574A24] sm:text-[1.45rem]">
         {text}
       </p>
     </motion.li>
@@ -69,11 +69,11 @@ const MagneticCta = ({ to, children }) => {
     <motion.div style={{ x, y }} onMouseMove={onMove} onMouseLeave={reset} className="inline-block">
       <Link
         to={to}
-        className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[#46344E] py-1.5 pl-6 pr-1.5 font-sans text-sm font-bold text-white shadow-md"
+        className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[#574A24] py-1.5 pl-6 pr-1.5 font-sans text-sm font-bold text-[#FAE8B4] shadow-md"
       >
-        <span className="absolute inset-0 origin-bottom scale-y-0 rounded-full bg-[#FAED26] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
-        <span className="relative transition-colors duration-300 group-hover:text-[#46344E]">{children}</span>
-        <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-[#FAED26] text-[#46344E] transition-transform duration-500 group-hover:rotate-[360deg] group-hover:bg-[#46344E] group-hover:text-[#FAED26]">
+        <span className="absolute inset-0 origin-bottom scale-y-0 rounded-full bg-[#CBBD93] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
+        <span className="relative transition-colors duration-300 group-hover:text-[#574A24]">{children}</span>
+        <span className="relative flex h-11 w-11 items-center justify-center rounded-full bg-[#CBBD93] text-[#574A24] transition-transform duration-500 group-hover:rotate-[360deg] group-hover:bg-[#574A24] group-hover:text-[#CBBD93]">
           <ArrowRight size={17} />
         </span>
       </Link>
@@ -121,19 +121,19 @@ const DistinctionSection = ({
     <MotionConfig reducedMotion="user">
       <section
         id={id}
-        className="relative w-full overflow-hidden bg-white px-4 pt-6 pb-10 text-[#46344E] sm:px-8 lg:px-14 lg:pt-8 lg:pb-12 border-b border-[#46344E]/10"
+        className="relative w-full overflow-hidden bg-white px-4 pt-6 pb-6 text-[#574A24] sm:px-8 sm:pt-8 sm:pb-8 lg:px-14 lg:pt-8 lg:pb-10 border-b border-[#574A24]/10"
       >
         <div className="mx-auto w-full max-w-[1360px]">
           {/* heading */}
-          <p className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#46344E]/15 py-1.5 pl-3 pr-4 font-sans text-sm font-medium text-[#5A5560]">
+          <p className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-[#574A24]/20 py-1.5 pl-3 pr-4 font-sans text-sm font-medium text-[#80775C]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FAED26] opacity-70" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FAED26]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#CBBD93] opacity-70" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#CBBD93]" />
             </span>
             (S4) Hospitality &amp; Events
           </p>
 
-          <h2 className="mb-8 font-display text-[clamp(3rem,10vw,9.5rem)] font-black leading-[0.9] tracking-[-0.055em] lg:mb-12">
+          <h2 className="mb-6 font-display text-[clamp(2.8rem,9vw,8.5rem)] font-black leading-[0.9] tracking-[-0.055em] lg:mb-8 text-[#574A24]">
             {badge.split(' ').map((w, i) => (
               <span key={i} className="mr-[0.2em] inline-block overflow-hidden pb-[0.08em] align-bottom">
                 <motion.span
@@ -150,9 +150,9 @@ const DistinctionSection = ({
           </h2>
 
           {/* statement, offset to the right like a magazine pull-quote */}
-          <div className="mb-10 grid lg:mb-14 lg:grid-cols-12">
+          <div className="mb-8 grid lg:mb-10 lg:grid-cols-12">
             <blockquote ref={quoteRef} className="m-0 lg:col-span-9 lg:col-start-4">
-              <p className="font-display text-[clamp(1.6rem,3.5vw,3.4rem)] font-bold leading-[1.14] tracking-[-0.025em]">
+              <p className="font-display text-[clamp(1.5rem,3.2vw,3rem)] font-bold leading-[1.14] tracking-[-0.025em] text-[#574A24]">
                 {quoteWords.map((w, i) => (
                   <Word key={i} w={w} i={i} n={quoteWords.length} progress={quoteP} />
                 ))}
@@ -161,10 +161,10 @@ const DistinctionSection = ({
           </div>
 
           {/* cinematic video band */}
-          <div ref={bandRef} className="relative mb-10 lg:mb-14">
+          <div ref={bandRef} className="relative mb-8 lg:mb-10">
             <motion.div
               style={{ clipPath: clip }}
-              className="relative h-[52vh] min-h-[340px] overflow-hidden bg-[#46344E] lg:h-[78vh]"
+              className="relative h-[52vh] min-h-[340px] overflow-hidden bg-[#1F1A0E] lg:h-[78vh]"
             >
               <motion.div style={{ scale: imgScale }} className="h-full w-full">
                 <video
@@ -185,18 +185,18 @@ const DistinctionSection = ({
                   <source src={video} type="video/mp4" />
                 </video>
               </motion.div>
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#221827]/85 via-[#322538]/30 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1F1A0E]/90 via-[#2E2713]/40 to-transparent" />
               <div className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-4 text-white lg:inset-x-10 lg:bottom-9">
                 <div>
-                  <p className="font-display text-2xl font-black leading-tight tracking-tight lg:text-4xl">
+                  <p className="font-display text-2xl font-black leading-tight tracking-tight lg:text-4xl text-[#FAE8B4]">
                     S4Consultancy
                   </p>
-                  <p className="mt-1 font-sans text-sm text-white/80">Hospitality &amp; Event Advisory</p>
+                  <p className="mt-1 font-sans text-sm text-[#FAE8B4]/80">Hospitality &amp; Event Advisory</p>
                 </div>
                 <Link
                   to={buttonLink}
                   aria-label={buttonText}
-                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white text-[#46344E] transition-colors duration-300 hover:bg-[#FAED26] hover:text-[#46344E] lg:h-20 lg:w-20"
+                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#FAE8B4] text-[#574A24] transition-colors duration-300 hover:bg-[#CBBD93] hover:text-[#574A24] lg:h-20 lg:w-20"
                 >
                   <ArrowUpRight size={26} />
                 </Link>

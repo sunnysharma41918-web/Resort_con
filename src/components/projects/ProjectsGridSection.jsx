@@ -82,8 +82,9 @@ const ProjectsGridSection = () => {
                   <span
                     className="badge-pill"
                     style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                      color: 'var(--color-plum)',
+                      backgroundColor: 'rgba(250, 232, 180, 0.95)',
+                      color: '#574A24',
+                      border: '1px solid #CBBD93',
                       fontWeight: 700,
                       boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                     }}
@@ -96,8 +97,8 @@ const ProjectsGridSection = () => {
                 <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
                   <span
                     style={{
-                      backgroundColor: 'var(--color-plum)',
-                      color: 'var(--color-terracotta)',
+                      backgroundColor: '#574A24',
+                      color: '#FAE8B4',
                       fontSize: '0.75rem',
                       fontWeight: 800,
                       padding: '0.35rem 0.85rem',
@@ -209,7 +210,7 @@ const ProjectsGridSection = () => {
                       gap: '0.35rem',
                       fontSize: '0.82rem',
                       fontWeight: 700,
-                      color: 'var(--color-terracotta)',
+                      color: '#574A24',
                       textTransform: 'uppercase',
                       letterSpacing: '0.04em'
                     }}

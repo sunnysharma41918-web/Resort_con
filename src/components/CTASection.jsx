@@ -23,11 +23,11 @@ const CTASection = ({
             transition={{ duration: 0.6 }}
           >
             {badge && (
-              <div className="eyebrow-badge center bg-[#FAED26]/15 text-[#FAED26] border border-[#FAED26]/40 mb-5 font-sans">
+              <div className="eyebrow-badge center bg-[#CBBD93]/20 text-[#FAE8B4] border border-[#CBBD93]/40 mb-5 font-sans">
                 {badge}
               </div>
             )}
-            <h2 className="cta-title font-display">{title}</h2>
+            <h2 className={`cta-title ${title.toLowerCase().includes('where hospitality') ? '!text-[#E53935] font-cinzel tracking-[0.02em]' : 'font-display'}`}>{title}</h2>
             <p className="cta-desc font-sans">{description}</p>
 
             <div className="cta-buttons">
@@ -38,7 +38,7 @@ const CTASection = ({
               {secondaryBtnText && (
                 <Link
                   to={secondaryBtnLink}
-                  className="btn btn-outline border-white/40 text-white hover:bg-[#FAED26] hover:text-[#46344E] hover:border-[#FAED26] font-sans"
+                  className="btn btn-outline border-white/40 text-white hover:bg-[#CBBD93] hover:text-[#574A24] hover:border-[#CBBD93] font-sans"
                 >
                   <span>{secondaryBtnText}</span>
                 </Link>
@@ -47,15 +47,15 @@ const CTASection = ({
 
             <div className="cta-trust-points font-sans">
               <div className="trust-item">
-                <ShieldCheck size={16} color="#FAED26" />
+                <ShieldCheck size={16} color="#CBBD93" />
                 <span>Dedicated Client Advocacy</span>
               </div>
               <div className="trust-item">
-                <Award size={16} color="#FAED26" />
+                <Award size={16} color="#CBBD93" />
                 <span>Verified Five-Star Standards</span>
               </div>
               <div className="trust-item">
-                <HeartHandshake size={16} color="#FAED26" />
+                <HeartHandshake size={16} color="#CBBD93" />
                 <span>Transparent Commercial Terms</span>
               </div>
             </div>

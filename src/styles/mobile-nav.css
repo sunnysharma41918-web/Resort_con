@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Full-Screen Mobile Navigation Overlay (Pure Black #000 & Electric Yellow #FAED26)
+   Full-Screen Mobile Navigation Overlay (Black, Brown, Red & White)
    ========================================================================== */
 .mobile-nav-fullscreen {
   position: fixed;
@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh; /* Dynamic viewport height for mobile browsers */
-  background-color: #000000;
+  background-color: #0A0806;
   color: #ffffff;
   z-index: 99999;
   display: flex;
@@ -23,9 +23,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(87, 74, 36, 0.45);
   flex-shrink: 0;
-  background-color: #161514;
+  background-color: #1A140E;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -44,6 +44,7 @@
   height: 44px;
   object-fit: contain;
   border-radius: 50%;
+  border: 1.5px solid #E53935;
   filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
 }
 
@@ -62,8 +63,8 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #1E1610;
+  border: 1px solid rgba(87, 74, 36, 0.6);
   color: #ffffff;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -71,9 +72,9 @@
 
 .mobile-nav-close-btn:hover,
 .mobile-nav-close-btn:focus-visible {
-  background-color: var(--color-primary);
+  background-color: #E53935;
   color: #ffffff;
-  border-color: var(--color-primary);
+  border-color: #E53935;
   transform: rotate(90deg);
   outline: none;
 }
@@ -128,13 +129,13 @@
 
 .mobile-menu-link:hover,
 .mobile-menu-link:focus-visible {
-  color: var(--color-primary);
+  color: #E53935;
   transform: translateX(4px);
   outline: none;
 }
 
 .mobile-menu-link.active {
-  color: var(--color-primary);
+  color: #E53935;
 }
 
 /* Plus/Minus Toggle Button for Expandable Categories */
@@ -145,8 +146,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: #1E1610;
+  border: 1px solid rgba(87, 74, 36, 0.6);
   color: #ffffff;
   cursor: pointer;
   flex-shrink: 0;
@@ -156,15 +157,15 @@
 
 .mobile-toggle-btn:hover,
 .mobile-toggle-btn:focus-visible {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: #E53935;
+  border-color: #E53935;
   color: #ffffff;
   outline: none;
 }
 
 .mobile-toggle-btn.is-expanded {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: #E53935;
+  border-color: #E53935;
   color: #ffffff;
 }
 
@@ -177,7 +178,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  border-left: 2px solid var(--color-primary);
+  border-left: 2px solid #E53935;
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -186,7 +187,7 @@
   font-family: var(--font-sans);
   font-size: 1.1rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   padding: 0.65rem 0;
   display: inline-flex;
@@ -197,19 +198,19 @@
 
 .mobile-submenu-link::before {
   content: '—';
-  color: var(--color-coral-soft);
+  color: #E53935;
   opacity: 0.85;
 }
 
 .mobile-submenu-link:hover,
 .mobile-submenu-link:focus-visible {
-  color: var(--color-primary);
+  color: #E53935;
   padding-left: 0.4rem;
   outline: none;
 }
 
 .mobile-submenu-link.active {
-  color: var(--color-primary);
+  color: #E53935;
   font-weight: 700;
 }
 
@@ -217,7 +218,7 @@
 .mobile-menu-cta-wrap {
   margin-top: 2.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(87, 74, 36, 0.4);
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -233,20 +234,22 @@
   font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: -0.01em;
-  background-color: var(--color-primary);
+  background-color: #E53935;
   color: #ffffff;
   border-radius: var(--radius-pill);
   text-decoration: none;
-  border: 1px solid var(--color-primary);
-  box-shadow: 0 6px 24px rgba(232, 90, 79, 0.38);
+  border: 1px solid #E53935;
+  box-shadow: 0 6px 24px rgba(229, 57, 53, 0.4);
   transition: all var(--transition-normal);
 }
 
 .mobile-cta-btn:hover,
 .mobile-cta-btn:focus-visible {
-  background-color: var(--color-primary-hover);
+  background-color: #c92a2a;
+  color: #ffffff;
+  border-color: #c92a2a;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(232, 90, 79, 0.55);
+  box-shadow: 0 10px 30px rgba(229, 57, 53, 0.6);
   outline: none;
 }
 
@@ -306,7 +309,7 @@
   background-color: #ffffff;
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: 0 16px 40px rgba(70, 52, 78, 0.15);
+  box-shadow: 0 16px 40px rgba(87, 74, 36, 0.12);
   padding: 0.75rem;
   min-width: 260px;
   z-index: 1010;
@@ -329,8 +332,8 @@
 }
 
 .desktop-dropdown-item:hover {
-  background-color: rgba(250, 237, 38, 0.25);
-  color: #201325;
+  background-color: rgba(203, 189, 147, 0.22);
+  color: #574A24;
   padding-left: 1.2rem;
 }
 

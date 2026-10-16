@@ -1,184 +1,194 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, MotionConfig, useScroll, useTransform } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 
 const EASE = [0.16, 1, 0.3, 1];
 
-const workflowSteps = [
+const steps = [
   {
-    step: '01',
-    stage: 'Prompt',
-    category: 'Celebration vision',
+    step: '01', stage: 'Prompt', category: 'Celebration vision',
     title: 'Personalized choreography',
-    tagline: 'Bespoke timelines, decor styling, and event coordination.',
-    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1000&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1400&auto=format&fit=crop&q=80',
     deliverables: ['Master timelines', 'Theme styling', 'Vendor vetting'],
     guarantee: 'Flawless day-of execution',
     link: '/services/wedding-planning',
   },
   {
-    step: '02',
-    stage: 'Sketch',
-    category: 'Venue & banquet vetting',
+    step: '02', stage: 'Sketch', category: 'Venue & banquet vetting',
     title: 'Architectural blueprint',
-    tagline: 'Ballroom vetting, capacity audits, and protected contracts.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f7?w=1000&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb18f15f7?w=1400&auto=format&fit=crop&q=80',
     deliverables: ['Ballroom audits', 'Contract protection', 'F&B minimums'],
     guarantee: 'Preferred concessions',
-    link: '/services/banquet-booking',
+    link: '/services/banquet-booking-consultancy',
   },
   {
-    step: '03',
-    stage: 'Color',
-    category: 'Hospitality staging',
+    step: '03', stage: 'Color', category: 'Hospitality staging',
     title: 'Curated guest stays',
-    tagline: 'Luxury room blocks, charter transfers, and a concierge desk.',
-    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1400&auto=format&fit=crop&q=80',
     deliverables: ['Room blocks', 'VIP charters', '24/7 concierge'],
     guarantee: 'Zero travel friction',
     link: '/services/resorts',
   },
   {
-    step: '04',
-    stage: 'Final',
-    category: 'Operational rigor',
+    step: '04', stage: 'Final', category: 'Operational rigor',
     title: 'Flawless execution',
-    tagline: '100% on-time protocol, operational audits, and SOP governance.',
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1000&auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&auto=format&fit=crop&q=80',
     deliverables: ['SOP checklists', 'Etiquette training', 'RevPAR growth'],
     guarantee: 'Proven standards',
     link: '/services/management-consultancy',
   },
 ];
 
-// Each stage sits a step lower than the last, so the row reads as progress
-const STAIRS = ['lg:mt-0', 'lg:mt-14', 'lg:mt-28', 'lg:mt-44'];
+const SANS = { fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" };
 
-const Card = ({ item, index }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['-9%', '9%']);
-
-  return (
-    <motion.li
-      ref={ref}
-      className={STAIRS[index]}
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 1, delay: index * 0.12, ease: EASE }}
+// circular text that slowly turns, with a link in the middle
+const SpinBadge = ({ to, text }) => (
+  <Link
+    to={to}
+    aria-label="Start your plan"
+    className="group relative flex h-[104px] w-[104px] shrink-0 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#574A24] focus-visible:ring-offset-4"
+  >
+    <motion.svg
+      viewBox="0 0 120 120"
+      className="absolute inset-0 h-full w-full"
+      animate={{ rotate: 360 }}
+      transition={{ duration: 22, ease: 'linear', repeat: Infinity }}
+      aria-hidden="true"
     >
-      <Link
-        to={item.link}
-        className="group block rounded-t-[999px] rounded-b-[28px] outline-none focus-visible:ring-2 focus-visible:ring-[#FAED26] focus-visible:ring-offset-4"
-      >
-        {/* arch photo */}
-        <div className="relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[28px] bg-[#F4F0F2]">
-          <motion.img
-            src={item.image}
-            alt=""
-            loading="lazy"
-            style={{ y }}
-            className="absolute inset-x-0 -top-[10%] h-[120%] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-          />
-          <span className="absolute bottom-4 left-4 rounded-full bg-white px-3.5 py-1.5 font-sans text-xs font-bold text-[#46344E]">
-            {item.step} &nbsp;{item.stage}
-          </span>
-          <span className="absolute bottom-4 right-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#46344E] text-white transition-colors duration-300 group-hover:bg-[#FAED26] group-hover:text-[#46344E]">
-            <ArrowUpRight
-              size={18}
-              className="transition-transform duration-300 group-hover:rotate-45"
-            />
-          </span>
-        </div>
+      <defs>
+        <path id="spin-circle" d="M60,60 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0" />
+      </defs>
+      <text fontSize="10.5" fill="#574A24" textLength="296" lengthAdjust="spacing" style={SANS}>
+        <textPath href="#spin-circle">{text}</textPath>
+      </text>
+    </motion.svg>
+    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#CBBD93] text-[#574A24] transition-transform duration-500 group-hover:rotate-45">
+      <ArrowUpRight size={20} />
+    </span>
+  </Link>
+);
 
-        {/* copy */}
-        <div className="px-1 pt-5">
-          <p className="mb-1.5 font-sans text-sm font-medium text-[#5A5560]">{item.category}</p>
-          <h3 className="mb-2 font-display text-2xl font-black leading-[1.05] tracking-tight text-[#46344E] xl:text-[1.7rem]">
-            {item.title}
-          </h3>
-          <p className="mb-4 font-sans text-sm leading-relaxed text-[#5A5560]">{item.tagline}</p>
-
-          <ul className="divide-y divide-[#46344E]/10 border-y border-[#46344E]/10">
-            {item.deliverables.map((d) => (
-              <li key={d} className="py-2 font-sans text-[13px] text-[#46344E]">
-                {d}
-              </li>
-            ))}
-          </ul>
-
-          <p className="mt-4 flex items-center gap-2 font-sans text-xs font-bold text-[#46344E]">
-            <Check size={14} className="shrink-0 text-[#FAED26]" />
-            {item.guarantee}
-          </p>
-        </div>
-      </Link>
-    </motion.li>
-  );
-};
-
-const StrategicPillarsSection = ({
+const StrategicPillarsSplit = ({
+  titleLines = ['Why Leading', 'Clients', 'Choose Us'],
+  eyebrow = 'A four-stage path to five-star events',
+  lead = 'From first creative vision to flawless execution, every stage is planned, vetted and delivered by one team. Pick a stage to see what you get.',
   ctaBadge = 'Start your plan',
   ctaLink = '/contact',
-  title = 'Why Leading Clients Choose Us',
-  lead = 'A four-stage path from first creative vision to flawless five-star execution.',
+  badgeText = 'from first vision to flawless execution ',
 }) => {
-  const words = title.split(' ');
+  const [active, setActive] = useState(0);
+  const cur = steps[active];
 
   return (
     <MotionConfig reducedMotion="user">
       <section
         id="why-choose-us"
-        className="relative w-full overflow-hidden bg-white px-4 pt-8 pb-10 text-[#46344E] sm:px-8 lg:px-14 lg:pt-10 lg:pb-12 border-b border-[#46344E]/10"
+        className="w-full min-h-screen bg-white px-4 py-8 sm:px-8 sm:py-12 lg:px-14 lg:py-8 flex flex-col justify-center text-[#574A24]"
       >
-        <div className="mx-auto w-full max-w-[1400px]">
-          {/* headline: the one orchestrated entrance */}
-          <h2 className="mb-6 font-display text-[clamp(2.6rem,7.4vw,7rem)] font-black leading-[1] tracking-[-0.045em] text-[#46344E] lg:mb-8">
-            {words.map((w, i) => (
-              <React.Fragment key={i}>
-                <span className="inline-block overflow-hidden pb-[0.1em] align-bottom">
+        <div className="mx-auto grid w-full max-w-[1360px] flex-1 items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12 my-auto">
+          {/* left: copy */}
+          <div className="flex flex-col justify-center py-2 lg:py-4" style={SANS}>
+            <div className="flex items-start justify-between gap-4">
+              <p className="pt-2 text-sm sm:text-base font-medium text-[#80775C]">{eyebrow}</p>
+              <SpinBadge to={ctaLink} text={badgeText} />
+            </div>
+
+            <h2 className="mt-2 text-[clamp(2.5rem,4.8vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.035em] text-[#574A24]">
+              {titleLines.map((l, i) => (
+                <span key={l} className="block overflow-hidden pb-[0.06em]">
                   <motion.span
-                    className="inline-block"
-                    initial={{ y: '115%' }}
+                    className="block"
+                    initial={{ y: '105%' }}
                     whileInView={{ y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: i * 0.08, ease: EASE }}
+                    transition={{ duration: 1.1, delay: i * 0.1, ease: EASE }}
                   >
-                    {w}&nbsp;
+                    {l}
                   </motion.span>
                 </span>
-              </React.Fragment>
-            ))}
-          </h2>
+              ))}
+            </h2>
 
-          <div className="mb-8 flex flex-col justify-between gap-6 border-t border-[#46344E]/15 pt-5 sm:flex-row sm:items-center lg:mb-10">
-            <p className="max-w-sm font-sans text-sm leading-relaxed text-[#5A5560]">{lead}</p>
-            {ctaBadge && (
-              <Link
-                to={ctaLink}
-                className="group relative inline-flex w-fit items-center gap-3 overflow-hidden rounded-full border border-[#46344E]/25 py-1.5 pl-5 pr-1.5 font-sans text-sm font-bold text-[#46344E] transition-colors duration-500 hover:text-white"
-              >
-                <span className="absolute inset-0 origin-bottom scale-y-0 rounded-full bg-[#46344E] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-100" />
-                <span className="relative">{ctaBadge}</span>
-                <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#FAED26] text-[#46344E]">
-                  <ArrowRight size={16} />
-                </span>
-              </Link>
-            )}
+            <p className="mt-4 sm:mt-6 max-w-md text-[14px] sm:text-[15px] leading-relaxed text-[#574A24]/85">{lead}</p>
+
+            <Link
+              to={ctaLink}
+              className="group mt-6 sm:mt-8 inline-flex w-fit items-center gap-6 rounded-full bg-[#574A24] py-2 pl-7 pr-2 text-sm font-semibold text-[#FAE8B4] outline-none transition-colors duration-300 hover:bg-[#43381a] focus-visible:ring-2 focus-visible:ring-[#574A24] focus-visible:ring-offset-4"
+            >
+              {ctaBadge}
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#CBBD93] text-[#574A24] transition-colors duration-300 group-hover:bg-[#FAE8B4]">
+                <ArrowRight size={16} />
+              </span>
+            </Link>
           </div>
 
-          {/* four stages, climbing left to right on desktop */}
-          <ol className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 lg:items-start lg:pb-2">
-            {workflowSteps.map((item, i) => (
-              <Card key={item.step} item={item} index={i} />
+          {/* right: compact soft image panel with a frosted selector card */}
+          <div className="relative h-[400px] sm:h-[460px] lg:h-[490px] w-full max-w-[500px] justify-self-center lg:justify-self-end overflow-hidden rounded-[24px] bg-[#FAE8B4]/30 lg:rounded-[32px] shadow-xl">
+            {steps.map((s, i) => (
+              <img
+                key={s.step}
+                src={s.image}
+                alt=""
+                loading={i === 0 ? 'eager' : 'lazy'}
+                className={`absolute inset-0 h-full w-full object-cover transition-all duration-[1100ms] ease-out ${i === active ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
+                  }`}
+              />
             ))}
-          </ol>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#CBBD93]/35 via-transparent to-[#574A24]/40 mix-blend-multiply" />
+
+            <div
+              className="absolute inset-x-3 bottom-3 rounded-[20px] border border-[#FAE8B4]/40 bg-[#574A24]/80 p-3.5 text-[#FAE8B4] shadow-lg backdrop-blur-xl sm:left-auto sm:right-4 sm:bottom-4 sm:w-[280px] lg:bottom-auto lg:right-5 lg:top-5 lg:rounded-[24px] lg:p-4"
+              style={SANS}
+            >
+              <div className="flex items-center gap-2.5" role="group" aria-label="Choose a stage">
+                {steps.map((s, i) => (
+                  <button
+                    key={s.step}
+                    type="button"
+                    onClick={() => setActive(i)}
+                    aria-pressed={i === active}
+                    aria-label={`${s.step} ${s.stage}`}
+                    className={`relative h-11 w-11 overflow-hidden rounded-full border-2 outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#CBBD93] ${i === active ? 'scale-110 border-[#CBBD93]' : 'border-white/40 opacity-80 hover:opacity-100'
+                      }`}
+                  >
+                    <img src={s.image} alt="" className="h-full w-full object-cover" />
+                  </button>
+                ))}
+              </div>
+
+              <p className="mt-4 text-xs font-medium text-[#FAE8B4]/85">
+                {cur.step} &nbsp;{cur.stage} &nbsp;&nbsp;{cur.category}
+              </p>
+              <h3 className="mt-1 text-xl font-medium leading-tight tracking-[-0.02em]">{cur.title}</h3>
+
+              <ul className="mt-3 space-y-1 text-[13px] text-[#FAE8B4]/90">
+                {cur.deliverables.map((d) => (
+                  <li key={d}>{d}</li>
+                ))}
+              </ul>
+
+              <p className="mt-3 flex items-center gap-2 text-xs font-semibold text-[#CBBD93]">
+                <Check size={14} className="shrink-0" />
+                {cur.guarantee}
+              </p>
+
+              <Link
+                to={cur.link}
+                className="group mt-4 inline-flex items-center gap-3 rounded-full bg-[#FAE8B4] py-1.5 pl-4 pr-1.5 text-sm font-semibold text-[#574A24] outline-none transition-colors hover:bg-white focus-visible:ring-2 focus-visible:ring-[#FAE8B4]"
+              >
+                See more
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#574A24] text-[#FAE8B4] transition-transform duration-500 group-hover:rotate-45">
+                  <ArrowUpRight size={15} />
+                </span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </MotionConfig>
   );
 };
 
-export default StrategicPillarsSection;
+export { StrategicPillarsSplit as StrategicPillarsSection };
+export default StrategicPillarsSplit;

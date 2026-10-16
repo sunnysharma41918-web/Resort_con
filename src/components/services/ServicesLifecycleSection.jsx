@@ -62,13 +62,13 @@ const ServicesLifecycleSection = () => {
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 bg-white border-t border-taupe/15">
       <div className="max-w-[1360px] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <span className="inline-flex items-center px-3.5 py-1.5 bg-coral text-white text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase rounded-none shadow-sm mb-3">
+          <span className="inline-flex items-center px-3.5 py-1.5 bg-[#FAE8B4] text-[#574A24] text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase rounded-full border border-[#CBBD93] shadow-sm mb-3">
             Delivery Framework
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-display font-extrabold sm:font-black text-plum tracking-tight leading-[1.08]">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-display font-extrabold sm:font-black text-[#574A24] tracking-tight leading-[1.08]">
             The S4Consultancy Coordination Lifecycle
           </h2>
-          <p className="text-xs sm:text-sm lg:text-[15px] text-taupe-dark tracking-wide font-sans mt-2 leading-relaxed">
+          <p className="text-xs sm:text-sm lg:text-[15px] text-[#80775C] tracking-wide font-sans mt-2 leading-relaxed">
             From the initial creative briefing to the final celebration or operational debrief, our disciplined coordination milestones ensure complete peace of mind.
           </p>
         </div>
@@ -79,49 +79,49 @@ const ServicesLifecycleSection = () => {
               key={idx}
               className={`p-6 sm:p-7 rounded-2xl border transition-all duration-300 flex flex-col justify-between ${
                 stage.highlight
-                  ? 'bg-plum text-white border-plum shadow-xl'
-                  : 'bg-[#F4F0F2] text-plum border-[#9D8D8F]/30 shadow-sm'
+                  ? 'bg-[#574A24] text-[#FAE8B4] border-[#574A24] shadow-xl'
+                  : 'bg-[#FAF6EC] text-[#574A24] border-[#CBBD93]/35 shadow-sm'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className={`text-[10px] font-sans font-bold uppercase tracking-wider ${stage.highlight ? 'text-coral' : 'text-coral'}`}>
+                  <span className={`text-[10px] font-sans font-bold uppercase tracking-wider ${stage.highlight ? 'text-[#FAE8B4]' : 'text-[#80775C]'}`}>
                     {stage.stage}
                   </span>
                   <span
                     className={`text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
                       stage.highlight
-                        ? 'bg-coral text-white'
-                        : 'bg-white border border-stone-200 text-stone-600'
+                        ? 'bg-[#FAE8B4] text-[#574A24]'
+                        : 'bg-white border border-[#CBBD93]/40 text-[#574A24]'
                     }`}
                   >
                     {stage.badge}
                   </span>
                 </div>
 
-                <h3 className={`font-display text-lg sm:text-[21px] font-bold mb-2 leading-snug ${stage.highlight ? 'text-white' : 'text-plum'}`}>
+                <h3 className={`font-display text-lg sm:text-[21px] font-bold mb-2 leading-snug ${stage.highlight ? 'text-[#FAE8B4]' : 'text-[#574A24]'}`}>
                   {stage.title}
                 </h3>
 
-                <p className={`text-xs sm:text-[13px] leading-relaxed font-sans mb-5 ${stage.highlight ? 'text-stone-300' : 'text-taupe-dark'}`}>
+                <p className={`text-xs sm:text-[13px] leading-relaxed font-sans mb-5 ${stage.highlight ? 'text-[#FAE8B4]/80' : 'text-[#80775C]'}`}>
                   {stage.description}
                 </p>
 
                 <div className="space-y-2 mb-6">
                   {stage.points.map((pt, i) => (
-                    <div key={i} className={`flex items-start gap-2 text-xs font-sans ${stage.highlight ? 'text-stone-200' : 'text-stone-700'}`}>
-                      <CheckCircle2 size={13} className={`shrink-0 mt-0.5 ${stage.highlight ? 'text-coral' : 'text-coral'}`} />
+                    <div key={i} className={`flex items-start gap-2 text-xs font-sans ${stage.highlight ? 'text-[#FAE8B4]/90' : 'text-[#574A24]'}`}>
+                      <CheckCircle2 size={13} className={`shrink-0 mt-0.5 ${stage.highlight ? 'text-[#CBBD93]' : 'text-[#80775C]'}`} />
                       <span>{pt}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className={`pt-4 border-t flex items-center justify-between font-sans ${stage.highlight ? 'border-white/10' : 'border-stone-200/70'}`}>
-                <span className={`text-[11px] font-semibold ${stage.highlight ? 'text-stone-400' : 'text-stone-500'}`}>
+              <div className={`pt-4 border-t flex items-center justify-between font-sans ${stage.highlight ? 'border-[#CBBD93]/20' : 'border-[#CBBD93]/25'}`}>
+                <span className={`text-[11px] font-semibold ${stage.highlight ? 'text-[#FAE8B4]/70' : 'text-[#80775C]'}`}>
                   Timeline
                 </span>
-                <span className={`text-xs font-bold ${stage.highlight ? 'text-coral' : 'text-plum'}`}>
+                <span className={`text-xs font-bold ${stage.highlight ? 'text-[#FAE8B4]' : 'text-[#574A24]'}`}>
                   {stage.timeline}
                 </span>
               </div>

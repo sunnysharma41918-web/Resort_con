@@ -56,10 +56,26 @@ ul, ol {
    ========================================================================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display, var(--font-heading, 'Canicule Display', 'Syne', 'Outfit', serif));
-  color: var(--color-text-main);
+  color: inherit;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.025em;
+}
+
+.text-white,
+.text-white h1,
+.text-white h2,
+.text-white h3,
+.text-white h4,
+.text-white h5,
+.text-white h6,
+[class*="text-white"] h1,
+[class*="text-white"] h2,
+[class*="text-white"] h3,
+[class*="text-white"] h4,
+[class*="text-white"] h5,
+[class*="text-white"] h6 {
+  color: #ffffff;
 }
 
 h1 {
@@ -146,7 +162,7 @@ p.lead {
 }
 
 /* ==========================================================================
-   Buttons (#FAED26 Yellow & #46344E Plum)
+   Buttons (Night Sands: #574A24 Olive & #CBBD93 Sand & #FAE8B4 Cream)
    ========================================================================== */
 .btn {
   display: inline-flex;
@@ -163,78 +179,78 @@ p.lead {
   white-space: nowrap;
 }
 
-/* Primary Electric Yellow Button (#FAED26) */
+/* Primary Deep Olive Button with Cream Text */
 .btn-primary {
-  background-color: var(--color-primary);
-  color: #46344E;
+  background-color: var(--color-deep-olive, #574A24);
+  color: var(--color-soft-cream, #FAE8B4);
   font-weight: 700;
-  border: 1px solid var(--color-primary);
-  box-shadow: 0 4px 16px rgba(250, 237, 38, 0.4);
+  border: 1px solid var(--color-deep-olive, #574A24);
+  box-shadow: 0 4px 16px rgba(87, 74, 36, 0.25);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  border-color: var(--color-primary-hover);
-  color: #46344E;
+  background-color: var(--color-primary-hover, #453a1c);
+  border-color: var(--color-primary-hover, #453a1c);
+  color: var(--color-soft-cream, #FAE8B4);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(250, 237, 38, 0.52);
+  box-shadow: 0 8px 24px rgba(87, 74, 36, 0.35);
 }
 
 /* White Pill Button */
 .btn-white {
   background-color: #ffffff;
-  color: var(--color-text-main);
+  color: var(--color-deep-olive, #574A24);
   border: 1px solid #ffffff;
-  box-shadow: 0 6px 20px rgba(70, 52, 78, 0.08);
+  box-shadow: 0 6px 20px rgba(87, 74, 36, 0.08);
 }
 
 .btn-white:hover {
-  background-color: var(--color-primary);
-  color: #46344E;
-  border-color: var(--color-primary);
+  background-color: var(--color-warm-sand, #CBBD93);
+  color: var(--color-deep-olive, #574A24);
+  border-color: var(--color-warm-sand, #CBBD93);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(250, 237, 38, 0.35);
+  box-shadow: 0 10px 25px rgba(203, 189, 147, 0.35);
 }
 
-/* Deep Slate Button (#46344E) */
+/* Deep Slate Button (#574A24) */
 .btn-dark,
 .btn-plum {
-  background-color: var(--color-plum);
-  color: #ffffff;
-  border: 1px solid var(--color-plum);
+  background-color: var(--color-deep-olive, #574A24);
+  color: var(--color-soft-cream, #FAE8B4);
+  border: 1px solid var(--color-deep-olive, #574A24);
 }
 
 .btn-dark:hover,
 .btn-plum:hover {
-  background-color: var(--color-plum-dark);
+  background-color: var(--color-primary-hover, #453a1c);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(70, 52, 78, 0.28);
+  box-shadow: 0 8px 20px rgba(87, 74, 36, 0.28);
 }
 
 /* Clean Outline Button */
 .btn-outline {
   background-color: transparent;
-  color: var(--color-text-main);
+  color: var(--color-deep-olive, #574A24);
   border: 1.5px solid var(--color-border);
 }
 
 .btn-outline:hover {
-  border-color: var(--color-primary);
-  color: #46344E;
-  background-color: rgba(250, 237, 38, 0.16);
+  border-color: var(--color-warm-sand, #CBBD93);
+  color: var(--color-deep-olive, #574A24);
+  background-color: rgba(203, 189, 147, 0.16);
   transform: translateY(-2px);
 }
 
-/* Yellow / Coral / Accent Outline Button */
+/* Sand / Accent Outline Button */
 .btn-outline-yellow {
   background-color: transparent;
-  color: var(--color-primary-dark);
-  border: 1.5px solid var(--color-primary);
+  color: var(--color-deep-olive, #574A24);
+  border: 1.5px solid var(--color-warm-sand, #CBBD93);
 }
 
 .btn-outline-yellow:hover {
-  background-color: var(--color-primary);
-  color: #46344E;
+  background-color: var(--color-warm-sand, #CBBD93);
+  color: var(--color-deep-olive, #574A24);
   transform: translateY(-2px);
 }
 
@@ -244,13 +260,13 @@ p.lead {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--color-primary-dark);
+  color: var(--color-deep-olive, #574A24);
   font-weight: var(--font-weight-bold);
   font-size: 0.92rem;
 }
 
 .btn-text:hover {
-  color: var(--color-slate-mauve);
+  color: var(--color-muted-taupe, #80775C);
   gap: 0.65rem;
 }
 
@@ -263,20 +279,20 @@ p.lead {
   align-items: center;
   justify-content: center;
   border: 1.5px solid var(--color-border);
-  color: var(--color-text-main);
+  color: var(--color-deep-olive, #574A24);
   background-color: #ffffff;
   transition: all var(--transition-fast);
 }
 
 .btn-circle:hover {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary);
-  color: #46344E;
+  border-color: var(--color-warm-sand, #CBBD93);
+  background-color: var(--color-warm-sand, #CBBD93);
+  color: var(--color-deep-olive, #574A24);
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   Badges & Eyebrow Elements (Custom 5-Color Luxury Palette)
+   Badges & Eyebrow Elements (Night Sands Luxury Palette)
    ========================================================================== */
 .eyebrow-badge {
   display: inline-flex;
@@ -286,10 +302,10 @@ p.lead {
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-obsidian-plum);
+  color: var(--color-deep-olive, #574A24);
   margin-bottom: var(--space-sm);
-  background-color: var(--color-mint);
-  border: 1px solid var(--color-primary-border);
+  background-color: var(--color-soft-cream, #FAE8B4);
+  border: 1px solid var(--color-warm-sand, #CBBD93);
   padding: 0.35rem 0.95rem;
   border-radius: var(--radius-pill);
 }
@@ -311,21 +327,21 @@ p.lead {
 .badge-pill-yellow,
 .badge-pill-coral,
 .badge-pill-green {
-  background-color: var(--color-primary);
-  color: #46344E;
-  border: 1px solid rgba(250, 237, 38, 0.7);
+  background-color: var(--color-soft-cream, #FAE8B4);
+  color: var(--color-deep-olive, #574A24);
+  border: 1px solid rgba(203, 189, 147, 0.65);
 }
 
 .badge-pill-plum,
 .badge-pill-dark {
-  background-color: var(--color-plum);
-  color: var(--color-snow);
+  background-color: var(--color-deep-olive, #574A24);
+  color: var(--color-soft-cream, #FAE8B4);
 }
 
 .badge-pill-terra {
-  background-color: rgba(155, 120, 111, 0.18);
-  color: #9B786F;
-  border: 1px solid rgba(155, 120, 111, 0.35);
+  background-color: rgba(203, 189, 147, 0.22);
+  color: var(--color-deep-olive, #574A24);
+  border: 1px solid rgba(128, 119, 92, 0.35);
 }
 
 /* ==========================================================================
@@ -438,8 +454,8 @@ p.lead {
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--color-plum);
-  box-shadow: 0 0 0 4px rgba(250, 237, 38, 0.35);
+  border-color: var(--color-deep-olive, #574A24);
+  box-shadow: 0 0 0 4px rgba(203, 189, 147, 0.35);
   background-color: #ffffff;
 }
 

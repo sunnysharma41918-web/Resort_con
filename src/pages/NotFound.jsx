@@ -14,8 +14,8 @@ const NotFound = () => {
           justifyContent: 'center',
           textAlign: 'center',
           padding: '2.5rem 1.5rem',
-          backgroundColor: 'var(--color-plum-darkest)',
-          border: '1px solid rgba(250, 237, 38, 0.25)'
+          backgroundColor: '#1F1A0E',
+          border: '1px solid rgba(203, 189, 147, 0.25)'
         }}
       >
         <div style={{ maxWidth: '620px', position: 'relative', zIndex: 3 }}>
@@ -23,13 +23,13 @@ const NotFound = () => {
             width: '76px',
             height: '76px',
             borderRadius: 'var(--radius-md)',
-            backgroundColor: 'rgba(250, 237, 38, 0.15)',
-            color: 'var(--color-yellow)',
+            backgroundColor: 'rgba(203, 189, 147, 0.15)',
+            color: '#FAE8B4',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 1.5rem',
-            border: '1px solid rgba(250, 237, 38, 0.4)'
+            border: '1px solid rgba(203, 189, 147, 0.4)'
           }}>
             <Compass size={40} strokeWidth={1.75} />
           </div>
@@ -60,7 +60,7 @@ const NotFound = () => {
               <span>Return to Homepage</span>
             </Link>
             <Link 
-              to="/services" 
+              to="/#services" 
               className="btn btn-outline"
               style={{ borderColor: 'rgba(255, 255, 255, 0.4)', color: '#ffffff' }}
             >

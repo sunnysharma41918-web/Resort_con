@@ -1,8 +1,18 @@
+import weddingVideo from '../assets/Weeding Planner.mp4';
+import banquetVideo from '../assets/Banquetbooking.mp4';
+import resortsVideo from '../assets/Resorts.mp4';
+import hotelsVideo from '../assets/Hotels.mp4';
+import corporateVideo from '../assets/Corporate Event.mp4';
+import destinationWeddingsVideo from '../assets/Destinations Wedding.mp4';
+import managementVideo from '../assets/Managemnet Consulting.mp4';
+import groupBookingVideo from '../assets/Group booking.mp4';
+
 export const servicesData = [
   {
     id: 'wedding-planning',
     title: 'Wedding Planning',
     slug: 'wedding-planning',
+    video: weddingVideo,
     category: 'Celebrations & Events',
     iconName: 'Sparkles',
     tagline: 'Personalized wedding planning, vendor coordination, venue selection, and seamless event execution',
@@ -52,6 +62,7 @@ export const servicesData = [
     id: 'banquet-booking-consultancy',
     title: 'Banquet Booking & Consultancy',
     slug: 'banquet-booking-consultancy',
+    video: banquetVideo,
     category: 'Venue Advisory',
     iconName: 'Landmark',
     tagline: 'Assistance with banquet venue selection, event requirements, venue comparisons, and booking coordination',
@@ -101,6 +112,7 @@ export const servicesData = [
     id: 'resorts',
     title: 'Resorts',
     slug: 'resorts',
+    video: resortsVideo,
     category: 'Hospitality & Leisure',
     iconName: 'Palmtree',
     tagline: 'Resort discovery, property recommendations, venue consultancy, and hospitality solutions',
@@ -150,6 +162,7 @@ export const servicesData = [
     id: 'hotel-stays',
     title: 'Hotel Stays',
     slug: 'hotel-stays',
+    video: hotelsVideo,
     category: 'Accommodation',
     iconName: 'Hotel',
     tagline: 'Hotel selection, accommodation planning, and stay arrangements for individuals, families, and business travelers',
@@ -199,6 +212,7 @@ export const servicesData = [
     id: 'corporate-events',
     title: 'Corporate Events',
     slug: 'corporate-events',
+    video: corporateVideo,
     category: 'Corporate Hospitality',
     iconName: 'Briefcase',
     tagline: 'Professional corporate event planning, conferences, meetings, team gatherings, and business celebrations',
@@ -248,6 +262,7 @@ export const servicesData = [
     id: 'destination-weddings',
     title: 'Destination Weddings',
     slug: 'destination-weddings',
+    video: destinationWeddingsVideo,
     category: 'Celebrations & Events',
     iconName: 'Plane',
     tagline: 'Destination selection, resort coordination, guest accommodation, logistics, and wedding event planning',
@@ -297,6 +312,7 @@ export const servicesData = [
     id: 'management-consultancy',
     title: 'Management Consultancy',
     slug: 'management-consultancy',
+    video: managementVideo,
     category: 'Advisory & Strategy',
     iconName: 'TrendingUp',
     tagline: 'Strategic consultancy for hospitality operations, property management, service improvement, and business development',
@@ -346,6 +362,7 @@ export const servicesData = [
     id: 'group-booking',
     title: 'Group Booking',
     slug: 'group-booking',
+    video: groupBookingVideo,
     category: 'Accommodation & Logistics',
     iconName: 'Users',
     tagline: 'Coordinated hotel reservations and accommodation arrangements for families, corporate teams, wedding guests, and group travelers',

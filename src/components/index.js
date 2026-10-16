@@ -8,4 +8,3 @@ export * from './standard';
 export * from './services';
 export * from './projects';
 export * from './blog';
-export * from './contact';

@@ -41,10 +41,10 @@ const ServiceCard = ({ service, index = 0 }) => {
       <div>
         {/* Top: Icon + Category Badge */}
         <div className="flex items-center justify-between gap-3 mb-5">
-          <div className="w-12 h-12 rounded-xl bg-coral/20 text-[#46344E] flex items-center justify-center group-hover:bg-coral group-hover:text-[#46344E] transition-colors duration-300">
+          <div className="w-12 h-12 rounded-xl bg-[#CBBD93]/25 text-[#574A24] flex items-center justify-center group-hover:bg-[#CBBD93] group-hover:text-[#574A24] transition-colors duration-300">
             <IconComponent size={22} strokeWidth={1.8} />
           </div>
-          <span className="px-3 py-1 bg-[#FAF8F5] border border-stone-200 text-plum text-[11px] font-bold tracking-wider uppercase rounded-full font-sans">
+          <span className="px-3 py-1 bg-[#FAE8B4]/40 border border-[#CBBD93]/30 text-plum text-[11px] font-bold tracking-wider uppercase rounded-full font-sans">
             {service.category}
           </span>
         </div>

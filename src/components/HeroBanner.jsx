@@ -29,7 +29,7 @@ const DEFAULT_LEAD =
 const DEFAULT_VIDEO = { src: headVideo };
 
 const FOCUS =
-  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FAED26]';
+  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#CBBD93]';
 
 /* ---------- headline: words rise out of masks ---------- */
 const lineV = { hidden: {}, visible: { transition: { staggerChildren: 0.07, delayChildren: 0.25 } } };
@@ -40,7 +40,7 @@ const wordV = {
 const Line = ({ text }) => (
   <motion.span variants={lineV} className="block">
     {text.split(' ').map((w, i) => (
-      <span key={i} className="mr-[0.22em] inline-block overflow-hidden pb-[0.14em] align-bottom">
+      <span key={i} className="mr-[0.34em] last:mr-0 inline-block overflow-hidden pb-[0.14em] align-bottom">
         <motion.span variants={wordV} className="inline-block origin-bottom-left">
           {w}
         </motion.span>
@@ -137,6 +137,44 @@ const ActionEl = ({ action, className, children, scrollToId }) => {
   );
 };
 
+/* ---------- circular rotating text badge ---------- */
+const SpinBadge = ({
+  to = '/contact',
+  text = 'from first vision to flawless execution ',
+  className = '',
+}) => (
+  <Link
+    to={to}
+    aria-label="Start your plan"
+    className={`group relative flex h-[104px] w-[104px] sm:h-[114px] sm:w-[114px] shrink-0 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#CBBD93] focus-visible:ring-offset-4 ${className}`}
+  >
+    <motion.svg
+      viewBox="0 0 120 120"
+      className="absolute inset-0 h-full w-full"
+      animate={{ rotate: 360 }}
+      transition={{ duration: 22, ease: 'linear', repeat: Infinity }}
+      aria-hidden="true"
+    >
+      <defs>
+        <path id="hero-spin-circle" d="M60,60 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0" />
+      </defs>
+      <text
+        fontSize="10.5"
+        fill="#ffffff"
+        textLength="296"
+        lengthAdjust="spacing"
+        className="font-medium tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
+        style={{ fontFamily: "'Plus Jakarta Sans', 'Satoshi', sans-serif" }}
+      >
+        <textPath href="#hero-spin-circle">{text}</textPath>
+      </text>
+    </motion.svg>
+    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#E53935] text-white shadow-2xl transition-transform duration-500 group-hover:rotate-45 group-hover:scale-105 border border-white/20">
+      <ArrowUpRight size={20} strokeWidth={2.4} />
+    </span>
+  </Link>
+);
+
 /* ================================================================== */
 
 const HeroBanner = ({
@@ -189,19 +227,19 @@ const HeroBanner = ({
     <section
       ref={ref}
       onMouseMove={(e) => mx.set(e.clientX / window.innerWidth - 0.5)}
-      className="relative w-full overflow-hidden bg-[#0A1819] text-white"
+      className="relative w-full overflow-hidden bg-[#1F1A0E] text-white"
     >
       {/* fallback: slow colour glows, always underneath the video */}
-      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(120%_90%_at_20%_10%,#1f3f3e_0%,#0F2322_55%,#0A1819_100%)]">
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(120%_90%_at_20%_10%,#574A24_0%,#2E2713_55%,#1F1A0E_100%)]">
         <motion.div style={{ x: gx }} className="absolute -left-20 top-0 h-[34rem] w-[34rem]">
           <motion.div
-            className="h-full w-full rounded-full bg-[#3AAFA9]/30 blur-3xl"
+            className="h-full w-full rounded-full bg-[#CBBD93]/20 blur-3xl"
             animate={reduced ? undefined : { scale: [1, 1.2, 1], x: [0, 60, 0] }}
             transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
           />
         </motion.div>
         <motion.div
-          className="absolute -right-24 bottom-0 h-[30rem] w-[30rem] rounded-full bg-[#FAED26]/25 blur-3xl"
+          className="absolute -right-24 bottom-0 h-[30rem] w-[30rem] rounded-full bg-[#FAE8B4]/20 blur-3xl"
           animate={reduced ? undefined : { scale: [1.1, 0.9, 1.1], y: [0, -50, 0] }}
           transition={{ duration: 17, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -235,8 +273,15 @@ const HeroBanner = ({
         </motion.div>
       )}
 
-      {/* balanced veil keeps the video clear and words readable */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A1819]/80 via-[#0A1819]/25 to-[#0A1819]/45" />
+      {/* Whole background subtle blur dark shadow overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 bg-black/40 backdrop-blur-[2.5px]"
+        style={{ boxShadow: 'inset 0 0 120px rgba(0, 0, 0, 0.7)' }}
+      />
+
+      {/* Deep black shadow from bottom, leaving the video natural and vibrant */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-72 sm:h-[28rem] bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-32 bg-gradient-to-b from-black/75 to-transparent" />
 
       <motion.div
         style={{ y: textY, opacity: textOp }}
@@ -245,7 +290,8 @@ const HeroBanner = ({
         <motion.h1
           initial={reduced ? false : 'hidden'}
           animate="visible"
-          className="font-display text-[clamp(2.8rem,8vw,8.5rem)] font-medium leading-[0.96] tracking-[-0.045em] text-white"
+          className="font-cinzel text-[clamp(2.6rem,7.5vw,7.8rem)] font-bold leading-[1.04] tracking-[0.015em] text-[#E53935]"
+          style={{ textShadow: '0 6px 32px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 1)' }}
         >
           {lines.map((l, i) => (
             <Line key={i} text={l} />
@@ -257,9 +303,16 @@ const HeroBanner = ({
             initial={reduced ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: EASE, delay: 1.1 }}
-            className="max-w-md"
+            className="max-w-xl"
           >
-            {resolvedLead && <p className="font-sans text-sm leading-relaxed text-white/85 sm:text-base">{resolvedLead}</p>}
+            {resolvedLead && (
+              <p
+                className="font-sans text-sm leading-relaxed text-white sm:text-base font-medium"
+                style={{ textShadow: '0 3px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 1)' }}
+              >
+                {resolvedLead}
+              </p>
+            )}
             {(resolvedPrimary || secondaryAction) && (
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 {resolvedPrimary && (
@@ -267,11 +320,11 @@ const HeroBanner = ({
                     <ActionEl
                       action={resolvedPrimary}
                       scrollToId={scrollToId}
-                      className={`group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[#ECEBE4] py-1.5 pl-6 pr-1.5 font-sans text-sm font-bold text-[#46344E] ${FOCUS}`}
+                      className={`group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-white py-1.5 pl-6 pr-1.5 font-sans text-sm font-bold text-black shadow-[0_6px_24px_rgba(0,0,0,0.8)] transition-all duration-300 hover:bg-[#E53935] hover:text-white ${FOCUS}`}
                     >
-                      <span className="absolute inset-0 translate-y-full rounded-full bg-[#FAED26] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
-                      <span className="relative">{resolvedPrimary.text}</span>
-                      <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#46344E] text-[#FAED26] transition-transform duration-500 group-hover:rotate-45">
+                      <span className="absolute inset-0 translate-y-full rounded-full bg-[#E53935] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
+                      <span className="relative transition-colors duration-300 group-hover:text-white">{resolvedPrimary.text}</span>
+                      <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#E53935] text-white transition-transform duration-500 group-hover:bg-black group-hover:rotate-45">
                         <ArrowUpRight size={16} strokeWidth={2.4} />
                       </span>
                     </ActionEl>
@@ -281,7 +334,8 @@ const HeroBanner = ({
                   <ActionEl
                     action={secondaryAction}
                     scrollToId={scrollToId}
-                    className={`inline-flex items-center rounded-full border border-white/35 px-5 py-3 font-sans text-sm font-semibold text-white backdrop-blur-sm transition-colors duration-500 hover:bg-white/15 ${FOCUS}`}
+                    className={`inline-flex items-center rounded-full border border-white/50 bg-black/50 px-5 py-3 font-sans text-sm font-semibold text-white shadow-[0_4px_20px_rgba(0,0,0,0.7)] backdrop-blur-md transition-colors duration-500 hover:border-[#E53935] hover:bg-[#E53935]/25 hover:text-white ${FOCUS}`}
+                    style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.8)' }}
                   >
                     {secondaryAction.text}
                   </ActionEl>
@@ -290,23 +344,45 @@ const HeroBanner = ({
             )}
           </motion.div>
 
-          {statList.length > 0 && (
-            <motion.div
-              initial={reduced ? false : { opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: EASE, delay: 1.3 }}
-              className="flex gap-10 font-sans"
-            >
-              {statList.map((s, i) => (
-                <div key={i}>
-                  <div className="text-3xl font-medium tracking-tight sm:text-4xl">
-                    <CountUp value={s.value} />
+          {/* Bottom right: rotating spinner badge or stats */}
+          <div className="flex items-end gap-10">
+            {statList.length > 0 && (
+              <motion.div
+                initial={reduced ? false : { opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: EASE, delay: 1.3 }}
+                className="flex gap-10 font-sans"
+              >
+                {statList.map((s, i) => (
+                  <div key={i}>
+                    <div
+                      className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+                      style={{ textShadow: '0 4px 18px rgba(0, 0, 0, 0.95)' }}
+                    >
+                      <CountUp value={s.value} />
+                    </div>
+                    <div
+                      className="mt-1 text-xs text-white/90 sm:text-sm"
+                      style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}
+                    >
+                      {s.label}
+                    </div>
                   </div>
-                  <div className="mt-1 text-xs text-white/75 sm:text-sm">{s.label}</div>
-                </div>
-              ))}
+                ))}
+              </motion.div>
+            )}
+
+            <motion.div
+              initial={reduced ? false : { opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: EASE, delay: 1.1 }}
+              className="self-end"
+            >
+              <Magnetic>
+                <SpinBadge to={secondaryAction?.to || '/contact'} text="from first vision to flawless execution " />
+              </Magnetic>
             </motion.div>
-          )}
+          </div>
         </div>
       </motion.div>
     </section>

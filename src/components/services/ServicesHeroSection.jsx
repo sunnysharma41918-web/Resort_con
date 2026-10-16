@@ -24,18 +24,18 @@ const ServicesHeroSection = () => {
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-12 mb-10 sm:mb-14">
         {/* Left: Giant Bold Headline */}
         <div className="shrink-0">
-          <span className="inline-flex items-center px-3.5 py-1 bg-coral text-white text-[11px] font-bold tracking-[0.22em] uppercase rounded-none shadow-sm mb-3">
+          <span className="inline-flex items-center px-3.5 py-1 bg-[#FAE8B4] text-[#574A24] text-[11px] font-bold tracking-[0.22em] uppercase rounded-full border border-[#CBBD93] shadow-sm mb-3">
             Hospitality & Event Management Consultancy
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[68px] font-display font-extrabold sm:font-black text-plum tracking-tight leading-[1.04]">
+          <h1 className="text-4xl sm:text-5xl lg:text-[62px] xl:text-[68px] font-display font-extrabold sm:font-black text-[#574A24] tracking-tight leading-[1.04]">
             S4Consultancy<br />
-            <span className="text-coral">Core Services.</span>
+            <span className="text-[#CBBD93]">Core Services.</span>
           </h1>
         </div>
 
         {/* Center: Minimalist Dot Pill Indicator */}
-        <div className="hidden xl:flex items-center justify-center w-12 h-6 rounded-full bg-stone-200/90 shadow-inner">
-          <div className="w-2.5 h-2.5 rounded-full bg-coral animate-pulse" />
+        <div className="hidden xl:flex items-center justify-center w-12 h-6 rounded-full bg-[#FAE8B4]/60 border border-[#CBBD93]/40 shadow-inner">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#574A24] animate-pulse" />
         </div>
 
         {/* Right: Thoughtful Agency Editorial Paragraph */}
@@ -66,36 +66,36 @@ const ServicesHeroSection = () => {
 
             {/* Top Bar Badges inside slider */}
             <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-10 pointer-events-none">
-              <span className="px-3.5 py-1.5 bg-white/95 backdrop-blur-md text-plum text-[11px] font-bold font-sans tracking-widest uppercase rounded-full shadow-md">
+              <span className="px-3.5 py-1.5 bg-[#FAE8B4] text-[#574A24] border border-[#CBBD93] text-[11px] font-bold font-sans tracking-widest uppercase rounded-full shadow-md">
                 {current.category}
               </span>
-              <span className="px-3.5 py-1.5 bg-coral text-white text-[11px] font-bold font-sans tracking-wider uppercase rounded-full shadow-md">
+              <span className="px-3.5 py-1.5 bg-[#574A24] text-[#FAE8B4] border border-[#CBBD93]/50 text-[11px] font-bold font-sans tracking-wider uppercase rounded-full shadow-md">
                 {current.stats}
               </span>
             </div>
 
             {/* Bottom Large Overlay Typography */}
             <div className="absolute bottom-6 sm:bottom-10 left-6 sm:left-10 right-6 sm:right-10 z-10">
-              <span className="text-xs sm:text-sm font-sans font-bold text-coral uppercase tracking-widest block mb-1">
+              <span className="text-xs sm:text-sm font-sans font-bold text-[#FAE8B4] uppercase tracking-widest block mb-1">
                 Discipline 0{activeSlide + 1} of 0{totalSlides}
               </span>
-              <h2 className="text-3xl sm:text-5xl lg:text-[64px] xl:text-[72px] font-display font-black text-white tracking-wider leading-none drop-shadow-lg mb-3">
+              <h2 className="text-3xl sm:text-5xl lg:text-[64px] xl:text-[72px] font-display font-black text-[#FAE8B4] tracking-wider leading-none drop-shadow-lg mb-3">
                 {current.title}
               </h2>
-              <p className="text-xs sm:text-sm text-stone-200 font-sans leading-relaxed max-w-xl hidden sm:block mb-4">
+              <p className="text-xs sm:text-sm text-[#FAE8B4]/85 font-sans leading-relaxed max-w-xl hidden sm:block mb-4">
                 {current.tagline}
               </p>
               <div className="flex items-center gap-3">
                 <Link
                   to={`/services/${current.id}`}
-                  className="inline-flex items-center gap-2 bg-coral hover:bg-coral-dark text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors shadow-md font-sans"
+                  className="inline-flex items-center gap-2 bg-[#574A24] hover:bg-[#453a1c] text-[#FAE8B4] border border-[#CBBD93]/40 text-xs font-bold px-4 py-2 rounded-full transition-colors shadow-md font-sans"
                 >
                   <span>Explore Service Details</span>
                   <ArrowUpRight size={14} />
                 </Link>
                 <Link
                   to={`/contact?service=${encodeURIComponent(current.title)}`}
-                  className="inline-flex items-center gap-2 bg-white/90 hover:bg-white text-plum text-xs font-bold px-4 py-2 rounded-lg transition-colors shadow-md font-sans"
+                  className="inline-flex items-center gap-2 bg-[#FAE8B4] hover:bg-[#CBBD93] text-[#574A24] text-xs font-bold px-4 py-2 rounded-full transition-colors shadow-md font-sans"
                 >
                   <span>Inquire Now</span>
                 </Link>
@@ -109,7 +109,7 @@ const ServicesHeroSection = () => {
           <button
             type="button"
             onClick={handlePrev}
-            className="w-11 h-11 rounded-full bg-white/90 hover:bg-white text-plum flex items-center justify-center shadow-lg transition-all hover:scale-105 active:scale-95"
+            className="w-11 h-11 rounded-full bg-[#FAE8B4] hover:bg-[#CBBD93] text-[#574A24] flex items-center justify-center shadow-lg transition-all hover:scale-105 active:scale-95"
             aria-label="Previous service slide"
           >
             <ArrowLeft size={18} />
@@ -117,7 +117,7 @@ const ServicesHeroSection = () => {
           <button
             type="button"
             onClick={handleNext}
-            className="w-11 h-11 rounded-full bg-coral hover:bg-coral-dark text-white flex items-center justify-center shadow-lg transition-all hover:scale-105 active:scale-95"
+            className="w-11 h-11 rounded-full bg-[#574A24] hover:bg-[#453a1c] text-[#FAE8B4] border border-[#CBBD93]/40 flex items-center justify-center shadow-lg transition-all hover:scale-105 active:scale-95"
             aria-label="Next service slide"
           >
             <ArrowRight size={18} />
@@ -134,11 +134,11 @@ const ServicesHeroSection = () => {
             onClick={() => setActiveSlide(idx)}
             className={`p-3 rounded-xl text-left border transition-all duration-200 ${
               activeSlide === idx
-                ? 'bg-plum text-white border-plum shadow-md'
-                : 'bg-white text-stone-700 border-stone-200/80 hover:bg-[#F5F2EB]'
+                ? 'bg-[#574A24] text-[#FAE8B4] border-[#574A24] shadow-md'
+                : 'bg-white text-[#574A24] border-stone-200/80 hover:bg-[#FAF6EC]'
             }`}
           >
-            <span className={`text-[10px] font-bold block mb-0.5 ${activeSlide === idx ? 'text-coral' : 'text-stone-400'}`}>
+            <span className={`text-[10px] font-bold block mb-0.5 ${activeSlide === idx ? 'text-[#CBBD93]' : 'text-[#80775C]'}`}>
               0{idx + 1}
             </span>
             <span className="text-xs font-bold font-sans line-clamp-1">

@@ -74,79 +74,85 @@
 
 :root {
   /* ==========================================================================
-     Custom 5-Color Luxury Palette:
-     #FAED26 (Vibrant Electric Lemon Yellow / Primary Highlight)
-     #46344E (Deep Velvet Royal Obsidian Plum / Primary Dark Surface)
-     #5A5560 (Muted Slate Mauve / Secondary Dark & Neutral Body)
-     #9D8D8F (Dusty Lilac Taupe / Warm Heather Borders & Muted Accents)
-     #9B786F (Warm Earth Terracotta / Cocoa Rosewood Accent)
+     Night Sands Color Palette:
+     #CBBD93 — Warm Sand
+     #FAE8B4 — Soft Cream
+     #80775C — Muted Taupe
+     #574A24 — Deep Olive Brown
      ========================================================================== */
-  --color-electric-yellow: #FAED26;
-  --color-obsidian-plum: #46344E;
-  --color-slate-mauve: #5A5560;
-  --color-dusty-taupe: #9D8D8F;
-  --color-warm-terracotta: #9B786F;
+  --color-warm-sand: #CBBD93;
+  --color-soft-cream: #FAE8B4;
+  --color-muted-taupe: #80775C;
+  --color-deep-olive: #574A24;
 
   /* Aliases for core design system */
-  --color-obsidian: #46344E;
-  --color-deepteal: #5A5560;
-  --color-teal: #FAED26;
-  --color-mint: #F4F0F2;
-  --color-snow: #FEFFFF;
+  --color-primary: #574A24;
+  --color-primary-hover: #453a1c;
+  --color-primary-soft: rgba(203, 189, 147, 0.22);
+  --color-primary-glow: rgba(203, 189, 147, 0.45);
+  --color-primary-border: #CBBD93;
+  --color-primary-dark: #574A24;
+  --color-primary-darkest: #3a3218;
 
-  --color-cream: #F5F1F3;
-  --color-sand: #ECE6E9;
-  --color-slate-taupe: #5A5560;
-  --color-coral-soft: #FFF36D;
-  --color-coral: #FAED26;
-  --color-coral-dark: #E5D715;
+  --color-obsidian: #574A24;
+  --color-deepteal: #80775C;
+  --color-teal: #CBBD93;
+  --color-mint: #FAF6EC;
+  --color-snow: #FAF8F2;
 
-  /* Primary Accent & Action Colors */
-  --color-primary: #FAED26;
-  --color-primary-hover: #E5D715;
-  --color-primary-soft: rgba(250, 237, 38, 0.16);
-  --color-primary-glow: rgba(250, 237, 38, 0.42);
-  --color-primary-border: rgba(250, 237, 38, 0.6);
-  --color-primary-dark: #46344E;
-  --color-primary-darkest: #322538;
+  --color-cream: #FAE8B4;
+  --color-sand: #CBBD93;
+  --color-taupe: #80775C;
+  --color-olive: #574A24;
+
+  --color-slate-taupe: #80775C;
+  --color-coral-soft: #FAE8B4;
+  --color-coral: #CBBD93;
+  --color-coral-dark: #80775C;
 
   /* Backward Compatibility Aliases */
-  --color-yellow: #FAED26;
-  --color-yellow-hover: #E5D715;
-  --color-plum: #46344E;
-  --color-plum-dark: #322538;
-  --color-plum-darkest: #221827;
-  --color-slate: #5A5560;
-  --color-mauve: #9D8D8F;
-  --color-mauve-soft: #F4F0F2;
-  --color-terracotta: #9B786F;
-  --color-terracotta-soft: rgba(155, 120, 111, 0.18);
+  --color-electric-yellow: #CBBD93;
+  --color-obsidian-plum: #574A24;
+  --color-slate-mauve: #80775C;
+  --color-dusty-taupe: #80775C;
+  --color-warm-terracotta: #80775C;
 
-  --color-wellness-green: #FAED26;
-  --color-wellness-green-hover: #E5D715;
+  --color-yellow: #CBBD93;
+  --color-yellow-hover: #bdae85;
+  --color-plum: #574A24;
+  --color-plum-dark: #453a1c;
+  --color-plum-darkest: #2d2612;
+  --color-slate: #80775C;
+  --color-mauve: #80775C;
+  --color-mauve-soft: #FAF6EC;
+  --color-terracotta: #80775C;
+  --color-terracotta-soft: rgba(203, 189, 147, 0.25);
+
+  --color-wellness-green: #CBBD93;
+  --color-wellness-green-hover: #bdae85;
 
   /* Surfaces & Backgrounds */
-  --color-bg-page: #FEFFFF;
-  --color-bg-card: #FEFFFF;
-  --color-bg-card-warm: #FAF8F9;
-  --color-bg-soft: #F4F0F2;
-  --color-bg-muted: #ECE6E9;
-  --color-bg-dark: #46344E;
-  --color-border: rgba(90, 85, 96, 0.18);
-  --color-border-subtle: rgba(157, 141, 143, 0.32);
+  --color-bg-page: #FAF8F2;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-warm: #FAF6EC;
+  --color-bg-soft: #FAF6EC;
+  --color-bg-muted: #F3ECE0;
+  --color-bg-dark: #574A24;
+  --color-border: rgba(128, 119, 92, 0.22);
+  --color-border-subtle: rgba(203, 189, 147, 0.35);
 
   /* Typography */
-  --color-text-main: #46344E;
-  --color-text-body: #5A5560;
-  --color-text-muted: #9D8D8F;
-  --color-text-light: #9D8D8F;
-  --color-text-inverse: #FEFFFF;
-  --color-text-yellow: #FAED26;
-  --color-text-accent: #FAED26;
+  --color-text-main: #574A24;
+  --color-text-body: #574A24;
+  --color-text-muted: #80775C;
+  --color-text-light: #80775C;
+  --color-text-inverse: #FAE8B4;
+  --color-text-yellow: #CBBD93;
+  --color-text-accent: #574A24;
 
-  --color-success: #FAED26;
-  --color-error: #D9534F;
-  --color-error-bg: #FDF2F2;
+  --color-success: #574A24;
+  --color-error: #B8473D;
+  --color-error-bg: #FDF5F4;
 
   /* ==========================================================================
      Typography
